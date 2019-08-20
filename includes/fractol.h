@@ -51,8 +51,10 @@ typedef struct				s_frac
 	t_complex				min;
 	t_complex				max;
 	t_complex				factor;
+	t_complex				k;
+	int						coord[3];
 	long long int			mx_i;
-	unsigned int			color[2];
+	int						color[4];
 	double					p[10];
 	void					*(*f)(void *);
 }							t_frac;
