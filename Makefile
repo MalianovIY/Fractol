@@ -1,6 +1,6 @@
 NAME = fractol
 WFLAGS = -Wall -Werror -Wextra
-SRC = ./src/main.c
+SRC = ./src/main.c ./src/mandelbar.c ./src/julia_mandelbrot.c ./src/image_calc.c ./src/hooks.c
 OBJ = $(SRC:.c=.o)
 INC = -I ./libft/includes -I ./includes
 LIBFT = -L ./libft -lft

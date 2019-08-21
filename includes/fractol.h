@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahorker <ahorker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 # include "../libft/includes/libft.h"
 
@@ -20,52 +20,66 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <pthread.h>
-# define NUM_THRD			(40)
-# define SC_X				(960)
-# define SC_Y				(960)
-# define EC					0.00015230484
-# define CO					0.99984769515
-# define SI					0.01745240643
-# define ABS_MINUS(a, b)	((a >= b) ? (a - b) : (b - a))
 
-typedef struct				s_mlx
+# define SC_X		(960)
+# define SC_Y		(960)
+
+typedef struct		s_mlx
 {
-	void					*mlx;
-	void					*win;
-	void					*img;
-	int						bpp;
-	int						sl;
-	int						en;
-	char					*s;
-}							t_mlx;
+	void			*mlx;
+	void			*win;
+	void			*img;
+	int				bpp;
+	int				sl;
+	int				en;
+	char			*s;
+}					t_mlx;
 
-typedef struct				s_vector
+typedef struct		s_vector
 {
-	double					re;
-	double					im;
-}							t_complex;
+	double			re;
+	double			im;
+}					t_complex;
 
-typedef struct				s_frac
+typedef struct		s_frac
 {
-	t_mlx					mlx;
-	t_complex				min;
-	t_complex				max;
-	t_complex				factor;
-	t_complex				k;
-	int						coord[3];
-	long long int			mx_i;
-	int						color[4];
-	double					p[10];
-	void					*(*f)(void *);
-}							t_frac;
+	t_mlx			mlx;
+	t_complex		min;
+	t_complex		max;
+	t_complex		factor;
+	t_complex		k;
+	int				coord[3];
+	long long int	mx_i;
+	int				col[4];
+	double			p[10];
+	void			*(*f)(void *);
+}					t_frac;
 
-typedef struct				s_thr
+typedef struct		s_thr
 {
-	int						in;
-	int						out;
-	t_frac					*frc;
-}							t_thr;
+	int				in;
+	int				out;
+	t_frac			*frc;
+}					t_thr;
 
-t_complex		init_complex(double re, double im);
+t_complex			init_complex(double re, double im);
+
+void				draw_point(t_frac *frac, int x, int y, double t);
+
+void				*julia(void *thread);
+
+void				*mandelbrot(void *thread);
+
+void				*mandelbar(void *thread);
+
+void				hook(t_frac *fract);
+
+void				init_frac(t_frac *fract, int p);
+
+void 				apply_zoom(t_frac* fract, t_complex mouse, double zoom_factor);
+
+void				image_create_show(t_frac *fract);
+
+void				print_usage_error(int code_of_error);
 
 #endif
