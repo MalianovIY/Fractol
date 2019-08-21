@@ -51,7 +51,7 @@ typedef struct		s_frac
 	int				coord[3];
 	long long int	mx_i;
 	int				col[4];
-	double			p[10];
+	double			p[9];
 	void			*(*f)(void *);
 }					t_frac;
 

@@ -23,7 +23,7 @@ void	apply_zoom(t_frac *e, t_complex mouse, double zoom_factor)
 	e->max.im = mouse.im + (e->max.im - mouse.im) * interpolation;
 	e->factor = init_complex((e->max.re - e->min.re) / (SC_X - 1),
 			(e->max.im - e->min.im) / (SC_Y - 1));
-	e->p[3] = (e->max.re - e->min.re) * .025;
+	e->p[3] = (e->max.re - e->min.re) * 0.025;
 }
 
 void	init_frac(t_frac *frac, int p)

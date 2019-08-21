@@ -12,7 +12,7 @@
 
 #include "../includes/fractol.h"
 
-int		mouse_move(int x, int y, void *param)
+int		mouse_move (int x, int y, void *param)
 {
 	t_frac	*f;
 
@@ -41,7 +41,7 @@ int		choose_zoom(t_frac *t, int x, int y, int key)
 		mouse = init_complex((double)x / (SC_X / (t->max.re -
 				t->min.re)) + t->min.re, (double)y / (SC_Y / (t->max.im -
 				t->min.im)) + t->min.im);
-		apply_zoom(t, mouse, 1.25);
+		apply_zoom(t, mouse,  1.25);
 	}
 	if (key == 5)
 	{
@@ -104,10 +104,6 @@ int		deal_key(int key, void *param)
 		frac->p[1] += frac->p[3];
 	if (key == 0)
 		frac->p[1] -= frac->p[3];
-	if (key == 69)
-		frac->p[3] -= 0.005;
-	if (key == 78)
-		frac->p[3] += 0.005;
 	image_create_show(frac);
 	return (0);
 }
