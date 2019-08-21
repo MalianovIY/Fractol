@@ -12,7 +12,7 @@
 
 #include "../includes/fractol.h"
 
-int		iter_man(t_frac *frc, t_complex c)
+int				iter_man(t_frac *frc, t_complex c)
 {
 	int			i;
 	t_complex	z;
@@ -25,7 +25,7 @@ int		iter_man(t_frac *frc, t_complex c)
 	return (i);
 }
 
-void	*mandelbar(void *thr)
+void			*mandelbar(void *thr)
 {
 	t_thr		*t;
 	t_complex	c;
@@ -48,7 +48,7 @@ void	*mandelbar(void *thr)
 	return (NULL);
 }
 
-void	print_usage_error(int x)
+void			print_usage_error(int x)
 {
 	if (x == 1)
 		write(1, "Malloc error: insufficient memory.\n", 35);
