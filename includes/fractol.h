@@ -76,7 +76,7 @@ void				hook(t_frac *fract);
 
 void				init_frac(t_frac *fract, int p);
 
-void 				apply_zoom(t_frac* fract, t_complex mouse, double zoom_factor);
+void 				apply_zoom(t_frac* fract, t_complex mous, double zm_fact);
 
 void				image_create_show(t_frac *fract);
 
